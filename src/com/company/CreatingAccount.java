@@ -1,6 +1,8 @@
 package com.company;
+
 import java.util.ArrayList;
 import java.util.Scanner;
+
 
 public class CreatingAccount {
     //polja podataka
@@ -8,6 +10,9 @@ public class CreatingAccount {
     private String userName;
     private int accountNumber;
     private int numberOfBorrowedBooks;
+
+    public CreatingAccount()  {}
+
 
 
     //metoda za kreiranje accounta i provjeru validacija brojeva accounta
@@ -17,7 +22,7 @@ public class CreatingAccount {
         accounts.add(account);//Arraylisti dodajemo kreirani account objekat
 
         System.out.println("Please enter your name: ");
-        String name = input.nextLine();
+        String name;
         name = input.nextLine();
         int number = -1;
 
@@ -40,8 +45,13 @@ public class CreatingAccount {
         System.out.println("\tDear " + accounts.get(accounts.size() - 1).getUserName() +
                 "\t\nAccount number is " + accounts.get(accounts.size() - 1).getAccountNumber() +
                 "\t\nYou dont have borrowed books.");
+
     }
-//getteri i setteri
+
+
+
+
+    //getteri i setteri
     public int getAccountNumber() {
         return accountNumber;
     }
@@ -65,5 +75,8 @@ public class CreatingAccount {
     public void setNumberOfBorrowedBooks(int numberOfBorrowedBooks) {
         this.numberOfBorrowedBooks = numberOfBorrowedBooks;
     }
+
+
+
 
 }

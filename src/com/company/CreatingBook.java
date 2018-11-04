@@ -2,6 +2,12 @@ package com.company;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.io.File;
+import java.io.PrintWriter;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class CreatingBook {
     //polja podataka
@@ -16,7 +22,7 @@ public class CreatingBook {
         books.add(book);//arraylisti dodajemo kreirani objekat knjige
 
         System.out.println("Enter a book title:" );
-        String title = input.nextLine();
+        String title;
         title = input.nextLine();
                 int number = -1;
 
@@ -39,7 +45,10 @@ public class CreatingBook {
 
 
 
+
     }
+
+
     //getteri i setteri
     public int getBookNumber() {
         return bookNumber;
