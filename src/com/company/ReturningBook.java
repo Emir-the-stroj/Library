@@ -2,15 +2,15 @@ package com.company;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class ReturningBook {
+public class ReturningBook extends Library{
 
 
     public static void bookReturn(ArrayList<CreatingAccount> accounts,ArrayList<CreatingBook> books, Scanner input){
         // unos broja racuna i broj knjige
         System.out.println("Enter account number: ");
-        int accNumber = input.nextInt();
+        int accNumber = isInteger();
         System.out.println("Enter a book number you want to return: ");
-        int numberBorrrowedBook = input.nextInt();
+        int numberBorrrowedBook = isInteger();
 
         //checkiranje unesenih parametara vracene knjige
         boolean check = BookLog.bookReturn(accNumber, numberBorrrowedBook);

@@ -1,9 +1,24 @@
 package com.company;
-import java.util.ArrayList;
-import java.util.Scanner;
-public class Library {
 
-    public static void main(String[] args) {
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+
+import java.util.Scanner;
+
+public class Library {
+static Scanner input = new Scanner(System.in);
+    //handle try and catch
+    public static int isInteger(){
+    while(true){
+    try{
+    return input.nextInt();
+    } catch (InputMismatchException e){
+    input.next();
+    System.out.println("Your input is not appropriate. Please try again.");
+    }
+    }
+    }
+    public static void main(String[] args)  {
     //Array liste za pohranjivanje podataka o knjigama i korisnicima
         ArrayList<CreatingAccount> accounts = new ArrayList<CreatingAccount>();
         ArrayList<CreatingBook> books = new ArrayList<CreatingBook>();
@@ -25,16 +40,17 @@ public class Library {
                     "\n\t5.Rented Book List " +
                     "\n\t0.Exit. \n");
 
-            broj = input.nextInt();
+            broj = isInteger();
             switch (broj){
                 case 1:CreatingAccount.creatingAccount(accounts, input);break;
                 case 2:CreatingBook.createBook(books, input);break;
                 case 3:BorrowingBook.borrowBook(accounts,books,input);break;
                 case 4:ReturningBook.bookReturn(accounts,books,input);break;
-                case 5:BookLog.rentedBookList();
+                case 5:BookLog.rentedBookList();break;
                 case 0:Exit.exit(accounts,books);break;
                 default:   System.out.println("Your input is not valid, please try again.");
             }
         }
+
     }
 }

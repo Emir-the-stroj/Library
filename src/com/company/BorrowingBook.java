@@ -1,11 +1,21 @@
 package com.company;
-
+import java.util.InputMismatchException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Date;
 
-public class BorrowingBook {
-
+public class BorrowingBook extends Library{
+   /* //handle try and catch
+    public static int isInteger(){
+        while(true){
+            try{
+                return input.nextInt();
+            } catch (InputMismatchException e){
+                input.next();
+                System.out.println("Vas unos nije odgovarajuci. Pokusajte ponovo:");
+            }
+        }
+    }*/
     //metoda za pozajmljivanje knjiga
     public static void borrowBook(ArrayList<CreatingAccount> accounts,ArrayList<CreatingBook> books, Scanner input){
     BookLog logObject = new BookLog();
@@ -18,7 +28,7 @@ public class BorrowingBook {
 //unosenje parametara i provjera da li user ima iznajmljenih knjiga i validnosti njegovog racuna
     while(check){
         System.out.println("Enter your account number: ");
-        accNumber = input.nextInt();
+        accNumber = isInteger();
         for(int i = 0; i < accounts.size(); i++){
             if(accounts.get(i).getAccountNumber() == accNumber){
                 check = false;
@@ -41,7 +51,7 @@ public class BorrowingBook {
         }
         if(!check){
             System.out.println("Enter a book number");
-            bookNumber = input.nextInt();
+            bookNumber = isInteger();
             int i = 0;
             while(i < books.size()){
                 if(books.get(i).getBookNumber() == bookNumber && books.get(i).isBookStatus()== true){
